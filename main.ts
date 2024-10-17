@@ -1,4 +1,4 @@
-Deno.serve({ port: 8000 }, async (req: Request) => {
+export const server = Deno.serve({ port: 8000 }, async (req: Request) => {
   // this isnt a scalable approach but it works!
   const validRoutes = [
     "/api/add",
