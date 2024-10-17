@@ -29,10 +29,10 @@ example is using Deno, as the API and it's tests are also using it.
 
 ```ts
 const options = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    // replace x and y with your desired values
-    body: JSON.stringify({ x: 10, y: 20 }),
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  // replace x and y with your desired values
+  body: JSON.stringify({ x: 10, y: 20 }),
 };
 
 let request = await fetch("http://localhost:8000/api/multiply", options);
@@ -41,6 +41,9 @@ let result = await request.text();
 // => 200 as x * y; where x = 10 and y = 20
 console.log(response);
 ```
+
+You can also use a client such as [Insomnia](https://insomnia.rest/) to make
+requests and test the API, after spinning up the dev server.
 
 # Running the tests
 
