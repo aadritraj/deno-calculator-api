@@ -37,5 +37,27 @@ Deno.serve({ port: 8000 }, async (req: Request) => {
     });
   }
 
-  return new Response();
+  const method = pathname.substring(pathname.lastIndexOf("/") + 1);
+  const { x, y } = JSON.parse(text);
+
+  let result: number = 0;
+
+  switch (method) {
+    case "add":
+      result = x + y;
+      break;
+    case "substract":
+      result = x - y;
+      break;
+    case "multiply":
+      result = x * y;
+      break;
+    case "divide":
+      result = x / y;
+      break;
+  }
+
+  return new Response(`${result}`, {
+    status: 200,
+  });
 });
