@@ -1,10 +1,4 @@
 Deno.serve({ port: 8000 }, async (req: Request) => {
-  if (req.method != "POST") {
-    return new Response("Wrong method! Use POST.", {
-      status: 405,
-    });
-  }
-
   // this isnt a scalable approach but it works!
   const validRoutes = [
     "/api/add",
@@ -20,6 +14,11 @@ Deno.serve({ port: 8000 }, async (req: Request) => {
   const text = await req.text();
 
   if (!text && inRoutes) {
+    if (req.method != "POST") {
+      return new Response("Wrong method! Use POST.", {
+        status: 405,
+      });
+    }
     const out =
       "Add x and y in JSON to the Body when sending requests to Arithmetic Operation APIs.";
 
